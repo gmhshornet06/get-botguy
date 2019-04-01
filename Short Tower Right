@@ -1,0 +1,12 @@
+int main()
+{
+  create_connect();
+  while(analog(0)<2600)
+  {
+    mav(0,250);
+    mav(3,250);
+    msleep(100);
+    }
+   msleep(1000)
+   set_create_total _angle(0);
+   while(abs(get_create_total_angle())<90)
