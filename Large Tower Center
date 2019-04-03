@@ -35,8 +35,6 @@ int main()
     return 0;
 }
 
-
-    
 void drive_backk(int distance)
 {
     create_drive_direct(100,100);
