@@ -1,0 +1,79 @@
+void drive_forward(double distance);
+void drive_back_fast(int distance);
+void drive_back_slow(int distance);
+void turn_right(int degrees);
+void turn_left(int degrees);
+int main()
+{
+    create_connect();
+    drive_forward(75);
+    msleep(500);
+    turn_left(40);
+    cmpc(0);
+    while(gmpc(0)<2300)
+    {
+        motor(0,700);
+         msleep(10);
+    }
+    ao();
+    enable_servos(2);
+    set_servo_position(2,448);
+    turn_right(44);
+    drive_back_slow(2);
+    drive_back_fast(50);
+    cmpc(0);
+    while(abs(gmpc(0))<4000)
+    {
+        motor(0,-700);
+        msleep(10);
+    } 
+    ao();
+    enable_servos(2);
+    set_servo_position(2,700);
+    create_stop();
+    create_disconnect();
+    return 0;
+}
+
+
+    
+void drive_backk(int distance)
+{
+    create_drive_direct(100,100);
+    msleep(distance/25*1000);
+    create_stop();
+}
+void drive_forward(double distance)
+{
+    create_drive_direct(250,250);
+    msleep(distance/25*1000);
+    create_stop();
+}   
+void drive_back_fast(int distance)
+{
+   
+     create_drive_direct(-400,-400);
+     msleep(abs(distance/25*1000));
+    
+    create_stop();
+}
+void dive_back_slow(int distance);
+{
+     create_drive_direct(-150,-150);
+     msleep(abs(distance/25*1000));
+    
+    create_stop();
+}
+void turn_right(int degrees)
+{
+    create_drive_direct(250,-250);
+    msleep(degrees*20);
+    create_stop();
+}
+void turn_left(int degrees)
+
+{
+    create_drive_direct(-250,250);
+    msleep(degrees*20);
+    create_stop();
+}
